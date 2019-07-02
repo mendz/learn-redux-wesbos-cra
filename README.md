@@ -18,7 +18,7 @@
 
 ## Notes:
 
-1. `src/reduxstagram.js` is `src/index.js`.
+1. `src/reduxstagram.js` is split between `src/index.js` (hot reloading configuration) and `src/App.js` (the reduxstagram.js code).
 
 ---
 
@@ -59,6 +59,10 @@
    }
    ```
    [For more information why use **require** and not **import**](https://stackoverflow.com/questions/43247696/javascript-require-vs-require-default)
+8. Add `src\store.js`
+   1. Use [Connected React Router](https://github.com/supasate/connected-react-router) instead of [react-router-redux](https://github.com/reactjs/react-router-redux) which is deprecated, because we are using _React Router_ v4+.
+   2. I used this [basic code example](https://github.com/supasate/connected-react-router/tree/master/examples/basic).
+   3. Add _store_, _actions_, _reducers_ and connect the App with the store (with the routes).
 
 ---
 
