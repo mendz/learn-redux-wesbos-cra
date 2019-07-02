@@ -11,8 +11,8 @@
 
 ## Original Source:
 
-- [Learn Redux](http://LearnRedux.com)
-- [Learn-Redux-Starter-Files (GitHub)](https://github.com/wesbos/Learn-Redux-Starter-Files)
+- [Learn Redux]
+- [Learn-Redux-Starter-Files (GitHub)]
 
 ---
 
@@ -24,10 +24,10 @@
 
 ## Steps:
 
-1. First I used the _styles_ `package.json` configuration from [Wes React-For-Beginners course](https://github.com/wesbos/React-For-Beginners-Starter-Files/blob/master/catch-of-the-day/package.json).
+1. First I used the _styles_ `package.json` configuration from [Wes React-For-Beginners course].
 2. Add the **Main** component, and use the styles.
 3. Remove some files that I don't need.
-4. Add hot reloading, from this article: "[Hot reloading with create-react-app without ejecting](https://medium.com/@brianhan/hot-reloading-cra-without-eject-b54af352c642)" by _Brian Han_.
+4. Add hot reloading, from this article: "[Hot reloading with create-react-app without ejecting]" by _Brian Han_.
 5. Understand that I have to split the code from `reduxstagram.js` to `src\index.js` and `src\App.js` in order to avoid the error:
    ```shell
    Critical dependency: the request of a dependency is an expression
@@ -58,10 +58,10 @@
      });
    }
    ```
-   [For more information why use **require** and not **import**](https://stackoverflow.com/questions/43247696/javascript-require-vs-require-default)
+   [For more information why use **require** and not **import**]
 8. Add `src\store.js`
-   1. Use [Connected React Router](https://github.com/supasate/connected-react-router) instead of [react-router-redux](https://github.com/reactjs/react-router-redux) which is deprecated, because we are using _React Router_ v4+.
-   2. I used this [basic code example](https://github.com/supasate/connected-react-router/tree/master/examples/basic).
+   1. Use [Connected React Router] instead of [react-router-redux] which is deprecated, because we are using _React Router_ v4+.
+   2. I used this [basic code example].
    3. Add _store_, _actions_, _reducers_ and connect the App with the store (with the routes).
 
 ---
@@ -70,3 +70,14 @@
 
 1. Can't renamed `index.js` to `reduxstagram.js` without eject.
 2. Not having the exact file/structure.
+
+<!-- external links -->
+
+[learn redux]: http://LearnRedux.com
+[learn-redux-starter-files (github)]: https://github.com/wesbos/Learn-Redux-Starter-Files
+[wes react-for-beginners course]: https://github.com/wesbos/React-For-Beginners-Starter-Files/blob/master/catch-of-the-day/package.json
+[hot reloading with create-react-app without ejecting]: https://medium.com/@brianhan/hot-reloading-cra-without-eject-b54af352c642
+[for more information why use **require** and not **import**]: https://stackoverflow.com/questions/43247696/javascript-require-vs-require-default
+[connected react router]: https://github.com/supasate/connected-react-router
+[react-router-redux]: https://github.com/reactjs/react-router-redux
+[basic code example]: https://github.com/supasate/connected-react-router/tree/master/examples/basic
