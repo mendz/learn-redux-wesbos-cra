@@ -20,7 +20,7 @@ render(App);
 
 if (module.hot) {
    module.hot.accept('./App', () => {
-      const NextApp = import('./App');
+      const NextApp = require('./App').default;
       render(NextApp);
    });
 }
