@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 // import css
 import './styles/style.css';
 
-import App from './App';
+import Reduxstagram from './Reduxstagram';
 
 // hot reloading staff
 const render = Component => {
@@ -16,11 +16,11 @@ const render = Component => {
    );
 };
 
-render(App);
+render(Reduxstagram);
 
 if (module.hot) {
-   module.hot.accept('./App', () => {
-      const NextApp = require('./App').default;
+   module.hot.accept('./Reduxstagram', () => {
+      const NextApp = require('./Reduxstagram').default;
       render(NextApp);
    });
 }

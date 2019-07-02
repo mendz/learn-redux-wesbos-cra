@@ -18,7 +18,7 @@
 
 ## Notes:
 
-1. `src/reduxstagram.js` is split between `src/index.js` (hot reloading configuration) and `src/App.js` (the reduxstagram.js code).
+1. `src/reduxstagram.js` split between `src/index.js` (hot reloading configuration) and `src/Reduxstagram.js` (most of the reduxstagram.js original code).
 
 ---
 
@@ -63,6 +63,9 @@
    1. Use [Connected React Router] instead of [react-router-redux] which is deprecated, because we are using _React Router_ v4+.
    2. I used this [basic code example].
    3. Add _store_, _actions_, _reducers_ and connect the App with the store (with the routes).
+9. Changed `src/App.js` to `src/Reduxstagram.js` because:
+   1. To keep the original name.
+   2. To prevent confusion with the `App` component from the original source.
 
 ---
 
