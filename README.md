@@ -25,10 +25,10 @@
 ## Steps:
 
 1. First I used the _styles_ `package.json` configuration from [Wes React-For-Beginners course].
-2. Add the **Main** component, and use the styles.
+2. Add the **Main** component (which now only display the app title), and use the styles.
 3. Remove some files that I don't need.
 4. Add hot reloading, from this article: "[Hot reloading with create-react-app without ejecting]" by _Brian Han_.
-5. Understand that I have to split the code from `reduxstagram.js` to `src\index.js` and `src\App.js` in order to avoid the error:
+5. Understand that I have to split the code from `client\reduxstagram.js` to `src\index.js` and `src\App.js` in order to avoid the error:
    ```shell
    Critical dependency: the request of a dependency is an expression
    ```
@@ -43,7 +43,7 @@
      });
    }
    ```
-6. Add routing and the `Single` , `PhotoGrid` components.
+6. Add routing and the **Single** , **PhotoGrid** components.
 7. Change back from `import` to `require`, which break the hot reloading, and with preserve log in the console I found it cause the error:
    ```shell
    warning: React.createElement: type is invalid -- expected a string
@@ -66,6 +66,11 @@
 9. Changed `src/App.js` to `src/Reduxstagram.js` because:
    1. To keep the original name.
    2. To prevent confusion with the `App` component from the original source.
+10. Connect the store state and dispatch functions to the components.
+
+    I couldn't think of a way to make one file with the redux connect code such as in the original code (the **App** component). Mainly because I don't use the `{React.cloneElement(this.props.children, this.props)}`. From my understanding, I couldn't use it because _React Router v4+_ don't work with children components and therefore I couldn't pass the store props as in the original code.
+
+    In the end, I decided to add the necessary code in each of the components and not in **Reduxstagram.js** with hope that it will be more clear to read it later with less nested code.
 
 ---
 
@@ -73,6 +78,7 @@
 
 1. Can't renamed `index.js` to `reduxstagram.js` without eject.
 2. Not having the exact file/structure.
+3. Don't have one file with the redux connect code such as in the original code (the **App** component).
 
 <!-- external links -->
 
