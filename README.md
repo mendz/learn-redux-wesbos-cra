@@ -24,7 +24,7 @@
 
 ## Steps:
 
-1. First I used the _styles_ `package.json` configuration from [Wes React-For-Beginners course].
+1. First I used the _styles_ `package.json` configuration from [Wes React-For-Beginners course package.json].
 2. Add the **Main** component (which now only display the app title), and use the styles.
 3. Remove some files that I don't need.
 4. Add hot reloading, from this article: "[Hot reloading with create-react-app without ejecting]" by _Brian Han_.
@@ -73,6 +73,7 @@
     In the end, I decided to add the necessary code in each of the components and not in **Reduxstagram.js** with hope that it will be more clear to read it later with less nested code.
 
 11. Found a way to kind of create one file to handle the redux connect: `src/utils/reactReduxConnect.js`, such as **App** in the original code.
+12. Use [react-transition-group] instead of [React-addons-css-transition-group] like the update from [Wes React-For-Beginners course].
 
 ---
 
@@ -86,9 +87,12 @@
 
 [learn redux]: http://LearnRedux.com
 [learn-redux-starter-files (github)]: https://github.com/wesbos/Learn-Redux-Starter-Files
-[wes react-for-beginners course]: https://github.com/wesbos/React-For-Beginners-Starter-Files/blob/master/catch-of-the-day/package.json
+[wes react-for-beginners course package.json]: https://github.com/wesbos/React-For-Beginners-Starter-Files/blob/master/catch-of-the-day/package.json
 [hot reloading with create-react-app without ejecting]: https://medium.com/@brianhan/hot-reloading-cra-without-eject-b54af352c642
 [for more information why use **require** and not **import**]: https://stackoverflow.com/questions/43247696/javascript-require-vs-require-default
 [connected react router]: https://github.com/supasate/connected-react-router
 [react-router-redux]: https://github.com/reactjs/react-router-redux
 [basic code example]: https://github.com/supasate/connected-react-router/tree/master/examples/basic
+[react-transition-group]: https://github.com/reactjs/react-transition-group
+[react-addons-css-transition-group]: https://www.npmjs.com/package/react-addons-css-transition-group
+[wes react-for-beginners course]: https://github.com/wesbos/React-For-Beginners-Starter-Files#changes-in-the-2018-re-record
