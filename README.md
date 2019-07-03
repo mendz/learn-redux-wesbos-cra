@@ -72,6 +72,8 @@
 
     In the end, I decided to add the necessary code in each of the components and not in **Reduxstagram.js** with hope that it will be more clear to read it later with less nested code.
 
+11. Found a way to kind of create one file to handle the redux connect: `src/utils/reactReduxConnect.js`, such as **App** in the original code.
+
 ---
 
 ## Things that missing:
