@@ -11,9 +11,17 @@ export class Photo extends Component {
                <Link to={`/view/${post.code}`}>
                   <img src={post.display_src} alt={post.caption} className="grid-photo" />
                </Link>
-               <TransitionGroup component="span" className="likes-heart">
-                  <CSSTransition classNames="likes-heart" key={post.likes} timeout={{ enter: 500, exit: 500 }}>
-                     <span>{post.likes}</span>
+               <TransitionGroup component="span">
+                  <CSSTransition
+                     classNames={{
+                        enter: 'like-enter',
+                        enterActive: 'like-enter-active',
+                        exit: '',
+                        exitActive: 'like-leave-active'
+                     }}
+                     key={post.likes}
+                     timeout={{ enter: 500, exit: 500 }}>
+                     <span className="likes-heart">{post.likes}</span>
                   </CSSTransition>
                </TransitionGroup>
             </div>
@@ -21,7 +29,7 @@ export class Photo extends Component {
             <figcaption>
                <p>{post.caption}</p>
                <div className="control-buttons">
-                  <button className="likes">&hearts; {post.likes}</button>
+                  <button onClick={() => this.props.increment(i)} className="likes">&hearts; {post.likes}</button>
                   <Link className="button" to={`/view/${post.code}`}>
                      <span className="comment-count">
                         <span className="speech-bubble"></span>
