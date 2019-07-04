@@ -19,7 +19,7 @@ function App() {
          <ConnectedRouter history={history}>
             <Route path="/" component={Main} />
             <Route path="/" exact component={PhotoGrid} />
-            <Route path="/view/:photoId" exact component={Single} />
+            <Route path="/view/:postId" exact component={Single} />
          </ConnectedRouter>
       </Provider>
    )
