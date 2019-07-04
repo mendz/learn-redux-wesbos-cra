@@ -74,6 +74,7 @@
 
 11. Found a way to kind of create one file to handle the redux connect: `src/utils/reactReduxConnect.js`, such as **App** in the original code.
 12. Use [react-transition-group] instead of [React-addons-css-transition-group] like the update from [Wes React-For-Beginners course].
+13. In the **Comments** component, in order to get the input values I replaced the refs to state and onChange function.
 
 ---
 
