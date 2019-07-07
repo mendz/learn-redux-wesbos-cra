@@ -1,92 +1,70 @@
-# My try to use Create-React-App for the course: _**Learn Redux**_ by _**Wes Bos**_
+# Use Create-React-App for the course: _**Learn Redux**_ by _**Wes Bos**_
 
-**Table Of Contents**
+I always enjoy from Wes's courses and therefore I wanted to do his Redux course.
 
-- [Original Source](#original-source)
-- [Notes](#notes)
-- [Steps](#steps)
-- [Things that missing](#things-that-missing)
+This is my attempt to do the course with Create React App and with updated dependencies.
 
----
+## The Original Source:
 
-## Original Source:
-
-- [Learn Redux]
+- [Learn Redux (site)]
 - [Learn-Redux-Starter-Files (GitHub)]
 
 ---
 
-## Notes:
+The updated dependencies:
 
-1. `src/reduxstagram.js` split between `src/index.js` (hot reloading configuration) and `src/Reduxstagram.js` (most of the reduxstagram.js original code).
+```json
+  "react-scripts": "3.0.1",
+  "react": "^16.8.6",
+  "react-dom": "^16.8.6",
+  "redux": "^4.0.1",
+  "react-redux": "^7.1.0",
+```
+
+New dependencies that replaced some of the deprecated ones:
+
+```json
+  "react-router-dom": "^5.0.1",
+  "history": "^4.9.0",
+  "connected-react-router": "^6.5.0",
+  "react-transition-group": "^4.2.1",
+```
+
+The [`src/reduxstagram.js`] was split between [`src/index.js`] (for the hot reloading configuration) and to [`src/Reduxstagram.js`] (most of the **reduxstagram.js** original code).
 
 ---
 
-## Steps:
+## Changes:
 
-1. First I used the _styles_ `package.json` configuration from [Wes React-For-Beginners course package.json].
-2. Add the **Main** component (which now only display the app title), and use the styles.
-3. Remove some files that I don't need.
-4. Add hot reloading, from this article: "[Hot reloading with create-react-app without ejecting]" by _Brian Han_.
-5. Understand that I have to split the code from `client\reduxstagram.js` to `src\index.js` and `src\App.js` in order to avoid the error:
-   ```shell
-   Critical dependency: the request of a dependency is an expression
-   ```
-   This was the change in order to fix it:
-   ```diff
-   if (module.hot) {
-   - module.hot.accept(App, () => {
-   + module.hot.accept('./App', () => {
-   -  const NextApp = import(App);
-   +  const NextApp = import('./App');
-       render(NextApp);
-     });
-   }
-   ```
-6. Add routing and the **Single** , **PhotoGrid** components.
-7. Change back from `import` to `require`, which break the hot reloading, and with preserve log in the console I found it cause the error:
-   ```shell
-   warning: React.createElement: type is invalid -- expected a string
-   ```
-   This was the change in order to fix it:
-   ```diff
-   if (module.hot) {
-      module.hot.accept('./App', () => {
-   -  const NextApp = import('./App');
-   +  const NextApp = require('./App').default;
-       render(NextApp);
-     });
-   }
-   ```
-   [For more information why use **require** and not **import**]
-8. Add `src\store.js`
-   1. Use [Connected React Router] instead of [react-router-redux] which is deprecated, because we are using _React Router_ v4+.
+1. I used the _styles_ `package.json` scripts configuration from [Wes React-For-Beginners course package.json].
+2. In the components I used arrow functions instead of binding.
+3. The [`src/Main.js`] component now only displays the app title.
+4. The hot reloading is from this article: "[Hot reloading with create-react-app without ejecting]" by _Brian Han_.
+5. [`src/store.js`]:
+   1. Use [Connected React Router] instead of [react-router-redux] which is deprecated and not working with _React Router_ **v4+**.
    2. I used this [basic code example].
-   3. Add _store_, _actions_, _reducers_ and connect the App with the store (with the routes).
-9. Changed `src/App.js` to `src/Reduxstagram.js` because:
-   1. To keep the original name.
-   2. To prevent confusion with the `App` component from the original source.
-10. Connect the store state and dispatch functions to the components.
+6. Connect the store state and dispatch functions to the components:
 
-    I couldn't think of a way to make one file with the redux connect code such as in the original code (the **App** component). Mainly because I don't use the `{React.cloneElement(this.props.children, this.props)}`. From my understanding, I couldn't use it because _React Router v4+_ don't work with children components and therefore I couldn't pass the store props as in the original code.
+   I couldn't think of a way to make one file with the redux connect code such as in the original code (the **App** component). Mainly because I don't use the `{React.cloneElement(this.props.children, this.props)}`. From my understanding, I couldn't use it because _React Router v4+_ doesn't work with children components and therefore I couldn't pass the store props as in the original code.
 
-    In the end, I decided to add the necessary code in each of the components and not in **Reduxstagram.js** with hope that it will be more clear to read it later with less nested code.
+   In the end, I create one file to handle the redux connect: [`src/utils/reactReduxConnect.js`], such as **App** in the original code, however, I still need to use it in any of the components that need to use the store.
 
-11. Found a way to kind of create one file to handle the redux connect: `src/utils/reactReduxConnect.js`, such as **App** in the original code.
-12. Use [react-transition-group] instead of [React-addons-css-transition-group] like the update from [Wes React-For-Beginners course].
-13. In the **Comments** component, in order to get the input values I replaced the refs to state and onChange function.
+7. Use [react-transition-group] instead of [React-addons-css-transition-group] as in [Wes React-For-Beginners course].
+8. In the [`src/components/Comments`] component, in order to get the input values, I replaced the all _refs_ (excluding the one for the form) to _state_ and _onChange_ function.
+9. For Redux devtools extension I used the updated [advanced store setup].
 
 ---
 
 ## Things that missing:
 
-1. Can't renamed `index.js` to `reduxstagram.js` without eject.
-2. Not having the exact file/structure.
+1. Not having the exact file/structure.
+2. One file `src/reduxstagram.js` (can't renamed `src/index.js` without eject, and also I needed two files for the hot reloading).
 3. Don't have one file with the redux connect code such as in the original code (the **App** component).
+4. Probably more things that I missed.
 
 <!-- external links -->
 
-[learn redux]: http://LearnRedux.com
+[learn redux (site)]: http://LearnRedux.com
 [learn-redux-starter-files (github)]: https://github.com/wesbos/Learn-Redux-Starter-Files
 [wes react-for-beginners course package.json]: https://github.com/wesbos/React-For-Beginners-Starter-Files/blob/master/catch-of-the-day/package.json
 [hot reloading with create-react-app without ejecting]: https://medium.com/@brianhan/hot-reloading-cra-without-eject-b54af352c642
@@ -97,3 +75,13 @@
 [react-transition-group]: https://github.com/reactjs/react-transition-group
 [react-addons-css-transition-group]: https://www.npmjs.com/package/react-addons-css-transition-group
 [wes react-for-beginners course]: https://github.com/wesbos/React-For-Beginners-Starter-Files#changes-in-the-2018-re-record
+[advanced store setup]: https://github.com/zalmoxisus/redux-devtools-extension#12-advanced-store-setup
+
+<!-- local files path -->
+
+[`src/reduxstagram.js`]: src/reduxstagram.js
+[`src/index.js`]: src/index.js
+[`src/main.js`]: src/components/Main.js
+[`src/store.js`]: src/store.js
+[`src/utils/reactreduxconnect.js`]: src/utils/reactReduxConnect.js
+[`src/components/comments`]: src/components/Comments.js
