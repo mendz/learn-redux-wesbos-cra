@@ -30,7 +30,7 @@ New dependencies that replaced some of the deprecated ones:
   "react-transition-group": "^4.2.1",
 ```
 
-The [`src/reduxstagram.js`] was split between [`src/index.js`] (for the hot reloading configuration) and to [`src/Reduxstagram.js`] (most of the **reduxstagram.js** original code).
+The **reduxstagram.js** was split between [`src/index.js`] (for the hot reloading configuration) and to [`src/Reduxstagram.js`] (most of the **reduxstagram.js** original code).
 
 ---
 
@@ -79,7 +79,7 @@ The [`src/reduxstagram.js`] was split between [`src/index.js`] (for the hot relo
 
 <!-- local files path -->
 
-[`src/reduxstagram.js`]: src/reduxstagram.js
+[`src/reduxstagram.js`]: src/Reduxstagram.js
 [`src/index.js`]: src/index.js
 [`src/main.js`]: src/components/Main.js
 [`src/store.js`]: src/store.js
