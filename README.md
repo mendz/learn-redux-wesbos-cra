@@ -52,6 +52,7 @@ The **reduxstagram.js** was split between [`src/index.js`] (for the hot reloadin
 7. Use [react-transition-group] instead of [React-addons-css-transition-group] as in [Wes React-For-Beginners course].
 8. In the [`src/components/Comments`] component, in order to get the input values, I replaced the all _refs_ (excluding the one for the form) to _state_ and _onChange_ function.
 9. For Redux devtools extension I used the updated [advanced store setup].
+10. I left the Sentry configuration ([`src/data/config.js`] and [`src/Reduxstagram.js`]) as is because I didn't want to change it from the original source/video, however, the API had been updated since then, for more information about it: "[Switching to Sentry-Javascript]".
 
 ---
 
@@ -76,6 +77,7 @@ The **reduxstagram.js** was split between [`src/index.js`] (for the hot reloadin
 [react-addons-css-transition-group]: https://www.npmjs.com/package/react-addons-css-transition-group
 [wes react-for-beginners course]: https://github.com/wesbos/React-For-Beginners-Starter-Files#changes-in-the-2018-re-record
 [advanced store setup]: https://github.com/zalmoxisus/redux-devtools-extension#12-advanced-store-setup
+[switching to sentry-javascript]: https://forum.sentry.io/t/switching-to-sentry-javascript/4732
 
 <!-- local files path -->
 
@@ -85,3 +87,4 @@ The **reduxstagram.js** was split between [`src/index.js`] (for the hot reloadin
 [`src/store.js`]: src/store.js
 [`src/utils/reactreduxconnect.js`]: src/utils/reactReduxConnect.js
 [`src/components/comments`]: src/components/Comments.js
+[`src/data/config.js`]: src/data/config.js

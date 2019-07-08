@@ -11,6 +11,7 @@ import Main from './components/Main';
 import PhotoGrid from './components/PhotoGrid';
 import Single from './components/Single';
 
+// sentry configuration
 import Raven from 'raven-js';
 import { sentry_url, logException } from './data/config';
 // the only reason that I used this variable is for not to comment all the Sentry code which make it hard to read.
